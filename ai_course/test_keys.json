@@ -1,0 +1,28 @@
+{
+  "hw1": {
+    "q1": [
+      {
+        "args": [["holidays"]],
+        "expected_output": "holidays",
+        "assert_type": "assert_equal",
+        "kwargs": {}
+      },
+      {
+        "args": [["it", "is", "a", "great", "day."]],
+        "kwargs": {},
+        "expected_output": "it is a great day.",
+        "assert_type": "assert_equal"
+      }
+    ],
+    "q2": [
+      {
+        "args": "Amir",
+        "expected_output": "rimA"
+      },
+      {
+        "args": "stressed",
+        "expected_output": "desserts"
+      }
+    ]
+  }
+}
