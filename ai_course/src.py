@@ -73,11 +73,16 @@ class TestExampleKeys:
 
 
 class Tester:
-    current_folder = os.path.split(__file__)[0]
-    TEST_KEY_PATH = os.path.join(current_folder, 'test_keys.json')
-
     def __init__(self):
-        self.test_keys = TestExampleKeys(self.TEST_KEY_PATH)
+        current_folder = os.path.split(__file__)[0]
+        if os.path.isfile(os.path.join(current_folder, 'test_keys.json')):  # python local
+            path = os.path.join(current_folder, 'test_keys.json')
+        elif os.path.isfile(os.path.join('content', 'test_keys.json')):  # colab
+            path = os.path.join('content', 'test_keys.json')
+        else:
+            raise FileNotFoundError("test keys not found.")
+
+        self.test_keys = TestExampleKeys(path)
 
     @staticmethod
     def assert_equal(a, b):
