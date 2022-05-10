@@ -75,7 +75,9 @@ class TestExampleKeys:
 class Tester:
     def __init__(self):
         current_folder = os.path.split(__file__)[0]
-        if os.path.isfile(os.path.join(current_folder, 'test_keys.json')):  # python local
+        if os.path.isfile("ai_course_materials/ai_course/test_keys.json"):  # python local relative path
+            path = "ai_course_materials/ai_course/test_keys.json"
+        elif os.path.isfile(os.path.join(current_folder, 'test_keys.json')):  # python local abs path
             path = os.path.join(current_folder, 'test_keys.json')
         elif os.path.isfile(os.path.join('/content', 'test_keys.json')):  # colab
             path = os.path.join('/content', 'test_keys.json')
