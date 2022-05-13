@@ -42,7 +42,7 @@ class TestExampleKeys:
         with open(test_key_path, 'r') as fid:
             self.test_key = json.load(fid)
 
-    def _get(self, hw, q, k, must_return=False):
+    def _get(self, hw, q, k, default=None):
         if hw not in self.test_key:
             raise ValueError(f"Homework {hw} was not found in the test key.")
 
@@ -50,26 +50,27 @@ class TestExampleKeys:
             raise ValueError(f"Question {q} was not found in the homework {hw} test key .")
 
         output = self.test_key[hw][q]
-        if not output:
-            output = None
-        else:
-            output = [o.get(k) for o in self.test_key[hw][q]]
+        if output:
+            output = [o.get(k, default) for o in self.test_key[hw][q]]
 
-        if must_return and (not output):
-            raise ValueError(f"Test {hw}_{q} did not return a value for {k}.")
+        if not output:
+            raise ValueError(f"{hw}_{q} did not have a value for {k}")
+
         return output
 
     def get_assert_type(self, hw, q):
-        return self._get(hw, q, "assert_type")
+        return self._get(hw, q, "assert_type", default="assert_equal")
 
     def get_args(self, hw, q):
-        return self._get(hw, q, "args")
+        return self._get(hw, q, "args", default=[])
 
     def get_kwargs(self, hw, q):
-        return self._get(hw, q, "kwargs")
+        return self._get(hw, q, "kwargs", default={})
 
     def get_expected_output(self, hw, q):
-        return self._get(hw, q, "expected_output")
+        out = self._get(hw, q, "expected_output")
+        out = [eval(o.replace('%eval ', '')) if isinstance(o, str) and o.startswith('%eval') else o for o in out]
+        return out
 
 
 class Tester:
@@ -101,14 +102,14 @@ class Tester:
     @staticmethod
     def _get_function_name(func):
         name = inspect.getsource(func)
-        func_name = re.findall('def.*hw[0123456789]_q[0123456789]', name)[0].replace('def', '').strip()
+        func_name = name.replace('def', '').replace(' ', '').split('(')[0]
         if func_name == '':
             raise(FunctionNameNotFoundException())
         return func_name
 
     def test_func(self, func):
         func_name = self._get_function_name(func)
-        hw, question = func_name.split("_")
+        hw, question = func_name.split("_")[:2]
 
         args_list = self.test_keys.get_args(hw, question)
         kwargs_list = self.test_keys.get_kwargs(hw, question)

@@ -1,11 +1,53 @@
 {
-  "hw1": {
+  "lesson1": {
     "q1": [
       {
+        "args": [3, 4, 5],
+        "expected_output": 4
+      },
+      {
+        "args": [3, 4, 6],
+        "expected_output": "%eval 13/3"
+      }
+    ],
+    "q2": [
+      {
+        "args": [3, 4, 5],
+        "expected_output": "%eval {3: 9, 4: 16, 5: 25}"
+      },
+      {
+        "args": [-1, 0, 1.5],
+        "expected_output": "%eval {-1: 1, 0: 0, 1.5: 2.25}"
+      }
+    ],
+    "q3": [
+      {
+        "args": 5,
+        "expected_output": false
+      },
+      {
+        "args": 6,
+        "expected_output": true
+      }
+    ],
+    "q4": [
+      {
+        "args": 5,
+        "expected_output": true
+      },
+      {
+        "args": 17,
+        "expected_output": true
+      },
+      {
+        "args": 21,
+        "expected_output": false
+      }
+    ],
+    "q5": [
+      {
         "args": [["holidays"]],
-        "expected_output": "holidays",
-        "assert_type": "assert_equal",
-        "kwargs": {}
+        "expected_output": "holidays"
       },
       {
         "args": [["it", "is", "a", "great", "day."]],
@@ -14,7 +56,7 @@
         "assert_type": "assert_equal"
       }
     ],
-    "q2": [
+    "q6": [
       {
         "args": "Amir",
         "expected_output": "rimA"
@@ -22,6 +64,16 @@
       {
         "args": "stressed",
         "expected_output": "desserts"
+      }
+    ],
+    "q7": [
+      {
+        "args": 2,
+        "expected_output": [1, 1]
+      },
+      {
+        "args": 7,
+        "expected_output": [1, 1, 2, 3, 5, 8, 13]
       }
     ]
   }
