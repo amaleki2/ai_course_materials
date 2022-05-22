@@ -62,7 +62,21 @@ class TestExampleKeys:
         return self._get(hw, q, "assert_type", default="assert_equal")
 
     def get_args(self, hw, q):
-        return self._get(hw, q, "args", default=[])
+        def transform(_args, func_list):
+            if not func_list:
+                return _args
+
+            return [x if func is None else eval(func)(x) for (x, func) in zip(_args, func_list)]
+
+        args_list = self._get(hw, q, "args", default=[])
+        args_transformations_list = self.get_args_transformations(hw, q)
+        args = [transform(args, args_transformations)
+                for (args, args_transformations) in zip(args_list, args_transformations_list)]
+
+        return args
+
+    def get_args_transformations(self, hw, q):
+        return self._get(hw, q, "args_transformations", default=[])
 
     def get_kwargs(self, hw, q):
         return self._get(hw, q, "kwargs", default={})
@@ -93,7 +107,12 @@ class Tester:
 
     @staticmethod
     def assert_almost_equal(a, b):
-        return ((a-b)**2).mean() < 1e-8
+        if isinstance(a, np.ndarray) and isinstance(b, np.ndarray):
+            return ((a-b)**2).mean() < 1e-8
+        elif isinstance(a, float) and isinstance(b, float):
+            return abs(a-b) < 1e-6
+        else:
+            return False
 
     @staticmethod
     def assert_true(a):
@@ -124,6 +143,9 @@ class Tester:
             except Exception as msg:
                 error_msg = " ".join(msg.args)
                 raise(FunctionDoesNotRunException(error_msg=error_msg))
+
+            if func_output is None:
+                print("The function did not return any value")
 
             if assert_func(func_output, expected_output) is False:
                 input_str = f"{args[0]}"

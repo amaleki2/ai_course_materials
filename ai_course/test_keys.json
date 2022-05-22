@@ -2,45 +2,71 @@
   "lesson1": {
     "q1": [
       {
-        "args": [3, 4, 5],
+        "args": [
+          3,
+          4,
+          5
+        ],
         "expected_output": 4
       },
       {
-        "args": [3, 4, 6],
+        "args": [
+          3,
+          4,
+          6
+        ],
         "expected_output": "%eval 13/3"
       }
     ],
     "q2": [
       {
-        "args": [3, 4, 5],
+        "args": [
+          3,
+          4,
+          5
+        ],
         "expected_output": "%eval {3: 9, 4: 16, 5: 25}"
       },
       {
-        "args": [-1, 0, 1.5],
+        "args": [
+          -1,
+          0,
+          1.5
+        ],
         "expected_output": "%eval {-1: 1, 0: 0, 1.5: 2.25}"
       }
     ],
     "q3": [
       {
-        "args": 5,
+        "args": [
+          5
+        ],
         "expected_output": false
       },
       {
-        "args": 6,
+        "args": [
+          6
+        ],
         "expected_output": true
       }
     ],
     "q4": [
       {
-        "args": 5,
+        "args": [
+          5
+        ],
         "expected_output": true
       },
       {
-        "args": 17,
+        "args": [
+          17
+        ],
         "expected_output": true
       },
       {
-        "args": 21,
+        "args": [
+          21
+        ],
         "expected_output": false
       }
     ],
@@ -50,31 +76,361 @@
         "expected_output": "holidays"
       },
       {
-        "args": [["it", "is", "a", "great", "day."]],
-        "kwargs": {},
-        "expected_output": "it is a great day.",
-        "assert_type": "assert_equal"
+        "args": [
+          [
+            "it",
+            "is",
+            "a",
+            "great",
+            "day."
+          ]
+        ],
+        "expected_output": "it is a great day."
       }
     ],
     "q6": [
       {
-        "args": "Amir",
+        "args": [
+          "Amir"
+        ],
         "expected_output": "rimA"
       },
       {
-        "args": "stressed",
+        "args": [
+          "stressed"
+        ],
         "expected_output": "desserts"
       }
     ],
     "q7": [
       {
-        "args": 2,
-        "expected_output": [1, 1]
+        "args": [
+          2
+        ],
+        "expected_output": [
+          1,
+          1
+        ]
       },
       {
-        "args": 7,
-        "expected_output": [1, 1, 2, 3, 5, 8, 13]
+        "args": [
+          7
+        ],
+        "expected_output": [
+          1,
+          1,
+          2,
+          3,
+          5,
+          8,
+          13
+        ]
       }
     ]
+  },
+  "hw1": {
+    "q1": [
+      {
+        "args": [
+          5,
+          10
+        ],
+        "expected_output": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "args": [
+          5,
+          5
+        ],
+        "expected_output": [
+          5
+        ]
+      }
+    ],
+    "q2": [
+      {
+        "args": [
+          10
+        ],
+        "expected_output": [
+          3,
+          6,
+          9
+        ]
+      },
+      {
+        "args": [
+          2
+        ],
+        "expected_output": []
+      }
+    ],
+    "q3": [
+      {
+        "args": [
+          1.5
+        ],
+        "expected_output": 9.42477796076938,
+        "assert_type": "assert_almost_equal"
+      }
+    ],
+    "q4": [
+      {
+        "args": [
+          [
+            1,
+            2,
+            3
+          ],
+          4
+        ],
+        "expected_output": false
+      },
+      {
+        "args": [
+          [
+            1,
+            "a",
+            3
+          ],
+          "a"
+        ],
+        "expected_output": true
+      }
+    ],
+    "q5": [
+      {
+        "args": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            "a",
+            "b",
+            "c"
+          ]
+        ],
+        "expected_output":  "%eval dict(zip([1,2,3], ['a', 'b', 'c']))"
+      }
+    ],
+    "q6": [
+      {
+        "args": [5, 15],
+        "expected_output":  [5, 7, 11, 13]
+      }
+    ]
+  },
+  "lesson2": {
+    "q1": [
+      {
+        "args": [
+          [
+            5.0
+          ],
+          [
+            4.5
+          ]
+        ],
+        "expected_output": 0.25
+      },
+      {
+        "args": [
+          [
+            5.0, 4.0
+          ],
+          [
+            4.0, 2.0
+          ]
+        ],
+        "expected_output": 2.5
+      }
+    ],
+    "q2": [
+      {
+        "expected_output": "%eval 2/3**(1.5)",
+        "assert_type": "assert_almost_equal"
+      }
+    ]
+  },
+  "lesson6": {
+    "q1": [
+      {
+        "args": [[1.0], [2.0]],
+        "expected_output": 1.0,
+        "assert_type": "assert_almost_equal"
+      },
+      {
+        "args": [[1.0, -1, 2.0], [-1, 1, 1]],
+        "expected_output": 3.0,
+        "assert_type": "assert_almost_equal"
+      }
+    ],
+    "q2": [
+      {
+        "args": [[1.0], [2.0]],
+        "expected_output": 1.0,
+        "assert_type": "assert_almost_equal"
+      },
+      {
+        "args": [[1.0, -1, 2.0], [-1, 1, 1]],
+        "expected_output": 3.0,
+        "assert_type": "assert_almost_equal"
+      }
+    ],
+    "q3": [
+      {
+        "args": [[[9, 10, 11], [12, 13, 14], [1, 2, 3], [3, 4, 5]], [1, 0, 3], 2],
+        "expected_output": [2, 3]
+      },
+      {
+        "args": [[[0], [1], [2]], [1.25], 1],
+        "expected_output": [1]
+      }
+    ],
+    "q4": [
+      {
+        "args": [[1, 1, 1, 0, 0, 1, 0], [1, 4, 3]],
+        "expected_output": [0]
+      },
+      {
+        "args": [[1, 1, 1, 0, 0, 1, 0], [1, 2, 3]],
+        "expected_output": [1]
+      }
+    ]
+  },
+  "lesson7": {
+    "q1": [
+      {
+        "args": [[[2.771, 1.784],
+                  [1.7285, 1.169],
+                  [3.6783, 2.812],
+                  [3.9610, 2.619],
+                  [2.9992, 2.209],
+                  [7.4975, 3.162],
+                  [9.0022, 3.339],
+                  [7.4445, 0.476],
+                  [10.124, 3.234],
+                  [6.6422, 3.319]],
+          [0, 0,0,0,0,1,1,1,1,1], 0, 2.771
+        ],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)", null, null],
+        "expected_output": 0.444,
+        "assert_type": "assert_almost_equal"
+      },
+      {
+        "args": [[[2.771, 1.784],
+                  [1.7285, 1.169],
+                  [3.6783, 2.812],
+                  [3.9610, 2.619],
+                  [2.9992, 2.209],
+                  [7.4975, 3.162],
+                  [9.0022, 3.339],
+                  [7.4445, 0.476],
+                  [10.124, 3.234],
+                  [6.6422, 3.319]],
+          [0, 0,0,0,0,1,1,1,1,1], 0, 1.728
+        ],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)", null, null],
+        "expected_output": 0.5,
+        "assert_type": "assert_almost_equal"
+      },
+      {
+        "args": [[[2.771, 1.784],
+                  [1.7285, 1.169],
+                  [3.6783, 2.812],
+                  [3.9610, 2.619],
+                  [2.9992, 2.209],
+                  [7.4975, 3.162],
+                  [9.0022, 3.339],
+                  [7.4445, 0.476],
+                  [10.124, 3.234],
+                  [6.6422, 3.319]],
+          [0, 0,0,0,0,1,1,1,1,1], 0, 3.678
+        ],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)", null, null],
+        "expected_output": 0.286,
+        "assert_type": "assert_almost_equal"
+      },
+      {
+        "args": [[[2.771, 1.784],
+                  [1.7285, 1.169],
+                  [3.6783, 2.812],
+                  [3.9610, 2.619],
+                  [2.9992, 2.209],
+                  [7.4975, 3.162],
+                  [9.0022, 3.339],
+                  [7.4445, 0.476],
+                  [10.124, 3.234],
+                  [6.6422, 3.319]],
+          [0, 0,0,0,0,1,1,1,1,1], 1, 1.728
+        ],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)", null, null],
+        "expected_output": 0.5,
+        "assert_type": "assert_almost_equal"
+      },
+      {
+        "args": [[[2.771, 1.784],
+                  [1.7285, 1.169],
+                  [3.6783, 2.812],
+                  [3.9610, 2.619],
+                  [2.9992, 2.209],
+                  [7.4975, 3.162],
+                  [9.0022, 3.339],
+                  [7.4445, 0.476],
+                  [10.124, 3.234],
+                  [6.6422, 3.319]],
+          [0, 0,0,0,0,1,1,1,1,1], 1, 3.319
+        ],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)", null, null],
+        "expected_output": 0.375,
+        "assert_type": "assert_almost_equal"
+      },
+      {
+        "args": [[[2.771, 1.784],
+                  [1.7285, 1.169],
+                  [3.6783, 2.812],
+                  [3.9610, 2.619],
+                  [2.9992, 2.209],
+                  [7.4975, 3.162],
+                  [9.0022, 3.339],
+                  [7.4445, 0.476],
+                  [10.124, 3.234],
+                  [6.6422, 3.319]],
+          [0, 0,0,0,0,1,1,1,1,1], 1, 2.209
+        ],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)", null, null],
+        "expected_output": 0.476,
+        "assert_type": "assert_almost_equal"
+      }
+    ],
+   "q2": [
+     {
+        "args": [[[1, 1],
+                  [2, 1],
+                  [3, 3],
+                  [4, 3]],
+          [0, 0, 0, 1]],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)"],
+        "expected_output": "%eval tuple([0, 4, 0])"
+      },
+     {
+        "args": [[[1, 1],
+                  [2, 1],
+                  [3, 3],
+                  [4, 3]],
+          [1, 1, 0, 2]],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)"],
+        "expected_output": "%eval tuple([0, 3, 0.25])"
+      }
+   ]
   }
 }
