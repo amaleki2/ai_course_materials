@@ -11,6 +11,7 @@ setup(
         "numpy",
         "graphviz",
         "sklearn",
-        "Pillow"
+        "Pillow",
+        "matplotlib"
     ],
 )

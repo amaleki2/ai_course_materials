@@ -100,9 +100,22 @@ class Tester:
 
         self.test_keys = TestExampleKeys(path)
 
-    @staticmethod
-    def assert_equal(a, b):
-        return a == b
+    def assert_equal(self, a, b):
+        if isinstance(a, str):
+            return a == b
+        if isinstance(a, dict):
+            return a == b
+        if not hasattr(a, '__len__'):  # is a scaler
+            return a == b
+        if isinstance(a, np.ndarray):
+            return np.all(a == b)
+        if isinstance(a, list) or isinstance(a, tuple):
+            for (ai, bi) in zip(a, b):
+                if not self.assert_equal(ai, bi):
+                    return False
+            return True
+
+        return False
 
     @staticmethod
     def assert_almost_equal(a, b):
@@ -112,10 +125,6 @@ class Tester:
             return abs(a-b) < 1e-6
         else:
             return False
-
-    @staticmethod
-    def assert_true(a):
-        return a
 
     @staticmethod
     def _get_function_name(func):

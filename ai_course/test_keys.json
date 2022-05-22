@@ -432,5 +432,24 @@
         "expected_output": "%eval tuple([0, 3, 0.25])"
       }
    ]
+  },
+  "lesson10": {
+    "q4": [
+      {
+        "args": [[1,2,3], [2,4,6], 2, 0],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)", null, null],
+        "expected_output": "%eval tuple([0, np.array([2, 4, 6]), 0., 0.])"
+      },
+      {
+        "args": [[1,2,3], [2,4,6], 1, 1],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)", null, null],
+        "expected_output": "%eval tuple([5/3, np.array([2, 3, 4]), -16/3, -2.])"
+      },
+      {
+        "args": [[-1, 0, 1, 1], [-2, 1, 2, 3], 0, 0],
+        "args_transformations": ["lambda x: np.array(x)", "lambda x: np.array(x)", null, null],
+        "expected_output": "%eval tuple([4.5, np.array([0, 0, 0, 0]), -3.5, -2.])"
+      }
+    ]
   }
 }
