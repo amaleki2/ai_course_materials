@@ -51,7 +51,7 @@ def plot_least_square_results(x_noisy, y_noisy, loss_history, m_history, b_histo
     """
     b_best = b_history[-1]
     m_best = m_history[-1]
-    x = np.arange(x_noisy.min(), x_noisy.max())
+    x = np.array([x_noisy.min(), x_noisy.max()])
     y_best = m_best * x + b_best
 
     plt.figure(figsize=(10, 10))
@@ -92,7 +92,7 @@ def animate_least_square_final_results(x_noisy, y_noisy, m_history, b_history):
     :param m_history: a list containing all m values after each optimization update
     :param b_history: a list containing all b values after each optimization update
     """
-    x = np.arange(x_noisy.min(), x_noisy.max())
+    x = np.array([x_noisy.min(), x_noisy.max()])
     y_init = m_history[0] * x + b_history[0]
 
     fig, ax = plt.subplots()
@@ -106,7 +106,7 @@ def animate_least_square_final_results(x_noisy, y_noisy, m_history, b_history):
         label = 'timestep {0}'.format(i)
         line.set_ydata(m_history[i] * x + b_history[i])
         ax.set_xlabel(label)
-        ax.set_xlim([-1, 10])
+        ax.set_xlim([x[0], x[1]])
         return line, ax
 
     return fig, update_func
@@ -148,7 +148,7 @@ def animate_least_square_loss(x_noisy, y_noisy, loss_func, m_history, b_history)
         point.set_linestyle('--')
         ax.set_xlabel("m")
         ax.set_ylabel("b")
-        # ax.set_xlim([-1,10])
+        ax.set_xlim([x_noisy.min(), x_noisy.max()])
         return point, ax
 
     return fig, update_func
