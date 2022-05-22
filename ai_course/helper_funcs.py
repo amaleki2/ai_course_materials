@@ -136,7 +136,7 @@ def animate_least_square_loss(x_noisy, y_noisy, loss_func, m_history, b_history)
     fig, ax = plt.subplots(figsize=(5, 5))
     fig.set_tight_layout(True)
     M, B = np.meshgrid(mvec, bvec)
-    ax.contourf(M, B, C.T, cmap=cm.coolwarm)
+    ax.contourf(M, B, C.T, 50, cmap=cm.coolwarm)
     ax.plot(m_best, b_best, 'y*', markersize=15)
     point, = ax.plot(m_history[0], b_history[0], 'r*')
 
