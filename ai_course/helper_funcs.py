@@ -214,8 +214,8 @@ def classifier_region_contour(model, X, y, model_name=None):
     cmap_light = ListedColormap(color_list_light[0:num_classes])
     cmap_bold = ListedColormap(color_list_bold[0:num_classes])
 
-    x_min, y_min = X.min(axis=0) - 0.5
-    x_max, y_max = X.max(axis=0) + 0.5
+    x_min, y_min = X.min(axis=0) - 0.05
+    x_max, y_max = X.max(axis=0) + 0.05
 
     n_data = 200
     x2, y2 = np.meshgrid(np.linspace(x_min, x_max, n_data), np.linspace(y_min, y_max, n_data))
