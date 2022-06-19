@@ -261,6 +261,27 @@
       }
     ]
   },
+  "hw2": {
+    "q1": [
+      {
+        "args": [0, 1, 1],
+        "expected_output": "%eval tuple([0.05, 2.8])",
+        "assert_type": "assert_equal"
+      },
+      {
+        "args": [1, 0, 1],
+        "expected_output": "%eval tuple([1.0, 2.8246415651117385])",
+        "assert_type": "assert_almost_equal"
+      }
+    ],
+    "q2": [
+      {
+        "args": [0, 0, 3],
+        "expected_output": "%eval tuple([[0, 0, 0.01, 0.028], [0, 0.2, 0.36, 0.49779983666748334]])",
+        "assert_type": "assert_almost_equal"
+      }
+    ]
+  },
   "lesson6": {
     "q1": [
       {

@@ -117,10 +117,13 @@ class Tester:
 
         return False
 
-    @staticmethod
-    def assert_almost_equal(a, b):
+    def assert_almost_equal(self, a, b):
         if isinstance(a, np.ndarray) and isinstance(b, np.ndarray):
             return ((a-b)**2).mean() < 1e-8
+        elif isinstance(a, tuple) and isinstance(b, tuple):
+            return self.assert_almost_equal(np.array(a), np.array(b))
+        elif isinstance(a, list) and isinstance(b, list):
+            return self.assert_almost_equal(np.array(a), np.array(b))
         elif isinstance(a, float) and isinstance(b, float):
             return abs(a-b) < 1e-6
         else:
