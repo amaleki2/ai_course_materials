@@ -237,4 +237,5 @@ def generate_kmeans_data(dim=2, n_samples=100, n_clusters=3, eps=0.3):
     for i in range(n_clusters):
         X[i * n_samples:(i + 1) * n_samples, :] += cluster_centers[i, :]
     X += np.random.random((n_samples * n_clusters, dim)) * eps
+    np.random.shuffle(X)
     return X
