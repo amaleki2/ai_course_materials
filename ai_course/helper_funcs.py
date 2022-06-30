@@ -229,3 +229,12 @@ def classifier_region_contour(model, X, y, model_name=None):
     plt.ylim(y_min - 0.5, y_max + 0.5)
     if model_name is not None:
         plt.title(f"classification region for {model_name} model")
+
+
+def generate_kmeans_data(dim=2, n_samples=100, n_clusters=3, eps=0.3):
+    X = np.zeros((n_samples * n_clusters, dim))
+    cluster_centers = np.random.random((n_clusters, dim)) * 2
+    for i in range(n_clusters):
+        X[i * n_samples:(i + 1) * n_samples, :] += cluster_centers[i, :]
+    X += np.random.random((n_samples * n_clusters, dim)) * eps
+    return X
